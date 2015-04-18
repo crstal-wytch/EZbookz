@@ -11,12 +11,14 @@
 <div class="container"> 
   <ul class="nav nav-tabs">
     <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Books", welcome_books_path %></li>
+    <li><%= link_to "Books", items_path %></li>
     <li><%= link_to "About us", welcome_about_path %></li>
     <li><%= link_to "Contact", welcome_contact_path %></li>
     <li><%= link_to "Invoices", invoices_path %></li>
+    <li><a href="/cart">View Cart (<%= @total_items %> Items, £<%= @total_price %>)</a></li>
     
     <% if current_user %>
+    <li><%=link_to current_user.email, edit_user_registration_path%></li>
     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
     <% else %>
     <li><%= link_to "Sign Up", new_user_registration_path %></li>
