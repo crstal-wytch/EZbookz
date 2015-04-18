@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'carts/show'
+
   resources :items
 
   resources :employees
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   get '/cart/:id' => 'cart#add'
 
   resources :invoices
+  
   
   root to: 'welcome#index'
   
