@@ -1,4 +1,5 @@
 <h1>Listing receipts</h1>
+    
 
 <div class="media">
   <div class="media-body">
@@ -20,9 +21,9 @@
             <td><%= receipt.address %></td>
             <td><%= receipt.email %></td>
             <td><%= receipt.pay_type %></td>
-            <td><%= link_to 'Show', receipt %></td>
-            <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
-            <td><%= link_to 'Destroy', receipt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', receipt, class: 'btn btn-success' %></td>
+            <!--<td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>-->
+            <!--<td><%= link_to 'Destroy', receipt, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
           </tr>
         <% end %>
       </tbody>
@@ -32,5 +33,6 @@
 
 <br>
 
-<%= link_to 'New Receipt', new_receipt_path %>
 <%= will_paginate @receipts %>
+
+<%= link_to 'Back to Catalogue', items_path, class: 'btn btn-success' %>
