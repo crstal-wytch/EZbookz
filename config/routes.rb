@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'welcome/about'
   get 'welcome/contact'
   get 'welcome/books'
+  get 'welcome/checkout'
+  get 'welcome/thank_you'
   get '/cart' => 'cart#index'
   get '/cart/:id' => 'cart#add'
 

@@ -15,13 +15,7 @@
     <li><%= link_to "About us", welcome_about_path %></li>
     <li><%= link_to "Contact", welcome_contact_path %></li>
     <li><%= link_to "Invoices", invoices_path %></li>
-    <li>
-  <%= link_to cart_path do%>
-    <i class="fi-shopping-cart"></i>
-    My Cart
-    (<span class="cart-count"><%=current_user.cart_count%></span>)
-  <%end%>
-</li>
+    
     <li><a href="/cart">View Cart (<%= @total_items %> Items, £<%= @total_price %>)</a></li>
     
     <% if current_user %>

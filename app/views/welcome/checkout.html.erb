@@ -1,0 +1,14 @@
+<h1>Checkout</h1>
+
+
+<p><%= @total_items %></p>
+<p><%= @total_price %></p>
+
+<% if (@total_items == 0) %>
+<p>You have no items in your cart.</p>
+<p><%= link_to "Back to Catalogue", items_path, class: 'btn btn-danger' %></p>
+<% else %>
+<p> Do you wish to continue shopping?</p>
+<p><%= link_to "Back to Catalogue", items_path, class: 'btn btn-danger' %></p>
+<p><%= link_to "Checkout", welcome_thank_you_path, class: 'btn btn-success' %></p>
+<% end %>
