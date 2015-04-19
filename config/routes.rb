@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   get 'carts/show'
 
-  resources :items
+  resources :items do
+    collection { post :import}
+  end
 
   resources :employees
 

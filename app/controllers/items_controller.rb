@@ -39,6 +39,11 @@ class ItemsController < ApplicationController
     @item.destroy
     respond_with(@item)
   end
+  
+  def import
+    Item.import(params[:file])
+    redirect_to items_path, notice: "Upload successful"
+  end
 
   private
     def set_item

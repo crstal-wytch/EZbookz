@@ -15,9 +15,6 @@
     <li><%= link_to "About us", welcome_about_path %></li>
     <li><%= link_to "Contact", welcome_contact_path %></li>
     <!--<li><%= link_to "Invoices", invoices_path %></li>-->
-    
-    <li><a href="/carts">View Cart (<%= @total_items %> Items, £<%= @total_price %>)</a></li>
-    
     <% if user_signed_in? %>
     <li id="fat-menu" class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -55,6 +52,7 @@
       <%= flash[:alert] %>
     </div>
   <% end %>
+  
 <%= yield %>
 
 </div>
