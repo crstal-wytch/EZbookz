@@ -21,6 +21,14 @@ class ApplicationController < ActionController::Base
     end
   end 
   
+  def total_price
+    cart_items.to_a.sum { |item| item.total_price }
+  end 
+  
+  def total_item
+    cart_items.to_a.sum { |item| item.quantity }
+  end
+  
   private
   
   def current_cart

@@ -18,14 +18,15 @@
           <td><%= item.quantity %></td>
           <td><%= number_to_currency(item.total_price, :unit => "£") %></td>
         </tr>
+        <% end %>
         <tr class="total_line">
-          <td colspan="3">Total Price</td>
+          <td colspan="2">Total</td>
+          <td class="total_cell"><%= @cart.total_item %></td>
           <td class="total_cell"><%= number_to_currency(@cart.total_price, :unit => "£") %></td>
         </tr>
-       <% end %>
       </tbody>
    </table>
+    <%= button_to 'Checkout', new_receipt_path, method: :get %>
     <%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure>' %>
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+
