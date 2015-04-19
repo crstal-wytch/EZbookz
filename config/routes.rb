@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'registrations' } 
   get 'welcome/index'
   get 'welcome/about'
   get 'welcome/contact'
