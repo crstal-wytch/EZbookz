@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<h2> Your Shopping Cart</h2>
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Author</th>
+          <th>Title</th>
+          <th>Quantity</th>
+          <th>Item Total</th>
+      </thead>
+      <tbody>
+        <% for item in @cart.cart_items %>
+        <tr>
+          <td><%= item.item.author %></td>
+          <td><%= item.item.title %></td>
+          <td><%= item.quantity %></td>
+          <td><%= number_to_currency(item.total_price, :unit => "£") %></td>
+        </tr>
+        <tr class="total_line">
+          <td colspan="3">Total Price</td>
+          <td class="total_cell"><%= number_to_currency(@cart.total_price, :unit => "£") %></td>
+        </tr>
+       <% end %>
+      </tbody>
+   </table>
+    <%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure>' %>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>
