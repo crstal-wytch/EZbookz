@@ -4,14 +4,18 @@ class ItemsController < ApplicationController
   respond_to :html
 
   def index
-    @items = Item.all
-    respond_with(@items)
+    if params[:search]
+      @items = Item.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+      respond_with(@items)
+    else
+      @items = Item.paginate(:per_page => 5, :page => params[:page])
+    end
   end
 
   def show
     respond_with(@item)
   end
-
+  
   def new
     @item = Item.new
     respond_with(@item)
