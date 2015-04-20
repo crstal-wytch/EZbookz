@@ -9,7 +9,7 @@ class CartsController < ApplicationController
   end
 
   def show
-    respond_with(@cart)
+    respond_with(@carts)  
   end
 
   def new

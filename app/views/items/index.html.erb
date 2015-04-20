@@ -47,9 +47,11 @@
 <%= will_paginate @items %>
 
 <br>
+<% if current_user %>
 <h3>Import Items</h3>
 <%= form_tag import_items_path, multipart: true do %>
 <%= file_field_tag :file %>
 <%= submit_tag "Upload Items" %>
+<% end %>
 <% end %>
 <!--<%= link_to 'New Item', new_item_path %>-->

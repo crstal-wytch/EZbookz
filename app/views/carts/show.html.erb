@@ -28,10 +28,10 @@
    </table>
     <% if user_signed_in? %>
     <%= button_to 'Checkout', new_receipt_path, method: :get %>
-    <%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure>' %>
     <% else %>
-    <%= link_to 'Sign up', new_user_registration_path, class: 'btn' %>
-    <%= link_to 'Login', new_user_session_path, class: 'btn btn-success' %>
+    <%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure>' %>
+    <p>You will need to <%= link_to 'Sign up', new_user_registration_path, class: 'btn' %> or 
+    <%= link_to 'Login', new_user_session_path, class: 'btn btn-success' %> to proceed to the checkout.</p>
     <% end %>
 
 
