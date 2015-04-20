@@ -4,9 +4,9 @@ class ItemsController < ApplicationController
   respond_to :html
 
   def index
-    if params[:search]
+    if params[:search] 
       @items = Item.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
-      #respond_with(@items)
+      respond_with(@items)
     else
       @items = Item.paginate(:per_page => 5, :page => params[:page])
     end

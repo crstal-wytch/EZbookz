@@ -15,7 +15,11 @@ class Item < ActiveRecord::Base
   
   # search bar for item database
   def self.search(search)
-    where("title LIKE ? ", "%#{search}%") or where("author LIKE ? ", "%#{search}")
+    where("title LIKE ? ", "%#{search}%")
+  end
+  
+  def self.query(query)
+    where("author LIKE ? ", "%#{query}%")
   end
   
   def self.import(file)
