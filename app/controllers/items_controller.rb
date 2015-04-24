@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   respond_to :html
 
   def index
+    @cart = current_cart
     if params[:search] 
       @items = Item.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
       respond_with(@items)
