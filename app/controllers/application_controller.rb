@@ -5,20 +5,8 @@ class ApplicationController < ActionController::Base
   
   before_action :set_cart_details
   
-  
   def set_cart_details
-    cart = session[:cart]
-     @total_price = 0
-    if(cart)
-      @total_items = session[:cart].size
-
-     cart.each do | id, quantity |
-       item = Item.find_by_id(id) 
-       @total_price += quantity * item.price 
-    end
-    else
-      @total_items = 0
-    end
+    @cart = current_cart
   end 
   
   def total_price

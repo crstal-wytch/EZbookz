@@ -23,9 +23,9 @@
           <th>Author</th>
           <th>Title</th>
           <th>Description</th>
-          <th>Price</th>
           <th>Quantity</th>
-          <th>Image url</th>
+          <th>Price</th>
+          <th>Image</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -36,12 +36,16 @@
             <td><%= item.item.author %></td>
             <td><%= item.item.title %></td>
             <td><%= item.item.description %></td>
-            <td>£<%= item.item.price %></td>
             <td><%= item.quantity %></td>
+            <td>£<%= item.item.price %></td>
             <td><%= link_to (image_tag item.item.image_url, :style => 'height:100px'), item %></td>
         </tr>
         <% end %>
-        
+        <tr class="total_line">
+          <td colspan="3">Total</td>
+          <td class="total_cell"><%= @cart.total_item %></td>
+          <td class="total_cell"><%= number_to_currency(@cart.total_price, :unit => "£") %></td>
+        </tr>
       </tbody>
     </table>
   </div>

@@ -14,7 +14,9 @@
     <li><%= link_to "Books", items_path %></li>
     <li><%= link_to "About us", welcome_about_path %></li>
     <li><%= link_to "Contact", welcome_contact_path %></li>
-     <!--<li><%= link_to "Invoices", invoices_path %></li>-->
+    <li><%= link_to "Your Cart", @cart %></li>
+    <li><a href="">Items:<%= @cart.total_item %>, Price: <%= number_to_currency(@cart.total_price, :unit => "£") %></a></li>
+    <!--<li><%= link_to "Invoices", invoices_path %></li>-->
     <% if user_signed_in? %>
     <li id="fat-menu" class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
